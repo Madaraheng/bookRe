@@ -1,0 +1,55 @@
+{% extends "layout.html"%}
+{% block title%}
+   book
+{% endblock %}
+
+{% block style%}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="{{url_for('static',filename='css/book.css')}}">
+
+{% endblock %}
+{% block body%}
+{% include "includes/_navbar.html" %}
+{% include "includes/_message.html" %}
+
+<div class="container">
+    <div class="jumbotron">
+        <table class="table striped">
+            <tr class="bg-dark text-light">
+              <td>Title</td>
+              <td>Author</td>
+              <td>Publication year</td>
+              <td>Isbn</td>
+              <td>Average rate</td>
+              <td>Rating Details</td>
+            </tr>
+             <tr class="bg-primary text-light">
+               <td>{{bookDetail.title}}</td>
+               <td>{{bookDetail.author}}</td>
+               <td>{{bookDetail.year}}</td>
+               <td>{{bookDetail.isbn}}</td>
+               <td>{{averageRating}} </td>
+               <td>{{ratings_count}}</td>
+             </tr>
+          
+         </table>
+ 
+   </div>
+   <ul class="list-group">
+     {% for comment1 in comment_book%}
+     <li class="list-group-item">{{comment1.comment}}</li>
+     {% endfor%}
+   </ul>
+   <form action="" method="POST">
+   <div class="form-group">
+      <label for="comment">Comment:</label>
+      <textarea class="form-control" rows="3" id="comment" name="comment" placeholder="your name and your thought"></textarea>
+    </div>
+    <button class="btn btn-success">Post</button>
+    </form>
+   <div class="mx-auto">
+       <a href="{{url_for('book')}}"><button class="btn btn-primary">Go back to Search</button></a>
+   </div>
+</div>
+
+{% endblock%}

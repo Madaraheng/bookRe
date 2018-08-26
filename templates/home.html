@@ -1,0 +1,46 @@
+{% extends "layout.html"%}
+
+{% block title%}
+   BookRe
+{% endblock %}
+
+{% block style%}
+  <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+{% endblock %}
+{% block body%}
+   <!-- header -->
+   <header>
+       <nav>
+           <a href="/">BookRe</a>
+           <div  class="menu-content">
+            
+                {% if session.logged_in %}
+                <a href="book">Book</a>
+                <a href="logout">logout</a>
+                {% else%}
+                <a href="register">Register</a>
+                <a href="login">Login</a>
+                {% endif%}
+           </div>
+       </nav>
+
+       <div class="welcome">
+           <h1>welcome to BookRe</h1>
+           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, nisi eos.</p>
+           {% if session.logged_in%}
+           <a href="book"><button class="btn-re">BooK</button></a>
+           <a href="book"><button class="btn-log">Search</button></a>
+
+           {%else%}
+           <a href="register"><button class="btn-re">Register</button></a>
+           <a href="login"><button class="btn-log">Login</button></a>
+           {%endif%}
+       </div>
+   </header>
+   <!-- footer -->
+
+   <footer>
+       <p>2018 &copy;BookRe</p>
+       <hr>
+   </footer>
+{% endblock %}

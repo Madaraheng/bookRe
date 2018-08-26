@@ -1,0 +1,31 @@
+body{
+    margin:0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+nav {
+    transition: 0.5s;
+    padding:20px;
+    background-color: teal;
+} 
+  
+nav a{
+      text-decoration: none;
+      font-size:25px;
+      color:#fff;
+      transition: 0.5s;
+      
+}
+nav a:hover{
+    color:gray;
+}
+
+nav .menu-content{
+      float: right;
+      margin-right: 50px;
+      
+}
+.menu-content a{
+      padding:20px 20px;    
+      text-decoration: none;  
+}
